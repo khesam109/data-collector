@@ -1,4 +1,4 @@
-package ir.rahyabcp.collector.dataaccess.entity;
+package ir.rahyabcp.collector.dataaccess.local.entity;
 
 public enum ConnectionProtocol {
 
