@@ -4,6 +4,7 @@ package ir.rahyabcp.collector.controller;
 import ir.rahyabcp.collector.common.ConnectionProtocol;
 import ir.rahyabcp.collector.dataaccess.local.entity.NodeInfoEntity;
 import ir.rahyabcp.collector.dataaccess.local.repository.NodeInfoRepository;
+import ir.rahyabcp.collector.service.configloader.ConfigLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,14 +18,17 @@ import java.util.List;
 public class NodeInfoController {
 
     private final NodeInfoRepository nodeInfoRepository;
+    private final ConfigLoader configLoader;
 
     @Autowired
-    public NodeInfoController(NodeInfoRepository nodeInfoRepository) {
+    public NodeInfoController(NodeInfoRepository nodeInfoRepository, ConfigLoader configLoader) {
         this.nodeInfoRepository = nodeInfoRepository;
+        this.configLoader = configLoader;
     }
 
     @GetMapping
     ResponseEntity<List<NodeInfoEntity>> getAllNodeInfo() {
+        configLoader.load();
         return ResponseEntity.ok().body(
                 this.nodeInfoRepository.findAll()
         );
