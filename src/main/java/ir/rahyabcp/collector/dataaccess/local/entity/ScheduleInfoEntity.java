@@ -13,8 +13,8 @@ public class ScheduleInfoEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "scheduleInfoSequenceGenerator")
     private int id;
 
-    @Column(name = "INTERVAL", nullable = false)
-    private int interval;
+    @Column(name = "POOLING_INTERVAL", nullable = false)
+    private int poolingInterval;
 
     @Column(name = "TIME_UNIT", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -28,12 +28,12 @@ public class ScheduleInfoEntity {
         this.id = id;
     }
 
-    public int getInterval() {
-        return interval;
+    public int getPoolingInterval() {
+        return poolingInterval;
     }
 
-    public void setInterval(int interval) {
-        this.interval = interval;
+    public void setPoolingInterval(int interval) {
+        this.poolingInterval = interval;
     }
 
     public TimeUnit getTimeUnit() {

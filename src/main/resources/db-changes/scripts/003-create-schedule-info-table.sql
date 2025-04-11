@@ -4,9 +4,9 @@
 --changeset rahyabcp:1 context:table-creation
 CREATE TABLE DATA_COLLECTOR.SCHEDULE_INFO
 (
-    ID        INT          PRIMARY KEY,
-    INTERVAL  INT          NOT NULL,
-    TIME_UNIT VARCHAR(255) NOT NULL
+    ID                INT          PRIMARY KEY,
+    POOLING_INTERVAL  INT          NOT NULL,
+    TIME_UNIT         VARCHAR(255) NOT NULL
 );
 --rollback DROP TABLE DATA_COLLECTOR.SCHEDULE_INFO;
 

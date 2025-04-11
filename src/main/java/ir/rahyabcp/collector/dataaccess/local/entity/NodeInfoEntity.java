@@ -48,9 +48,9 @@ public class NodeInfoEntity {
         this.scheduleInfo = scheduleInfo;
     }
 
-    public void addScheduleInfo(int interval, TimeUnit timeUnit) {
+    public void addScheduleInfo(int poolingInterval, TimeUnit timeUnit) {
         ScheduleInfoEntity scheduleInfoEntity = new ScheduleInfoEntity();
-        scheduleInfoEntity.setInterval(interval);
+        scheduleInfoEntity.setPoolingInterval(poolingInterval);
         scheduleInfoEntity.setTimeUnit(timeUnit);
         this.scheduleInfo = scheduleInfoEntity;
     }
