@@ -4,8 +4,9 @@
 --changeset rahyabcp:1 context:table-creation
 CREATE TABLE DATA_COLLECTOR.NODE_INFO
 (
-    ID                  INT PRIMARY KEY,
-    CONNECTION_PROTOCOL VARCHAR(255) NOT NULL
+    ID                  INT          PRIMARY KEY,
+    CONNECTION_PROTOCOL VARCHAR(255) NOT NULL,
+    SCHEDULE_INFO_ID    INT          NOT NULL
 );
 --rollback DROP TABLE DATA_COLLECTOR.NODE_INFO;
 

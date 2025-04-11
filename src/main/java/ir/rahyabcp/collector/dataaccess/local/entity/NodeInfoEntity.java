@@ -1,5 +1,7 @@
 package ir.rahyabcp.collector.dataaccess.local.entity;
 
+import ir.rahyabcp.collector.common.ConnectionProtocol;
+import ir.rahyabcp.collector.common.TimeUnit;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -18,6 +20,10 @@ public class NodeInfoEntity {
     @Enumerated(EnumType.STRING)
     private ConnectionProtocol connectionProtocol;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "SCHEDULE_INFO_ID", referencedColumnName = "ID", nullable = false)
+    private ScheduleInfoEntity scheduleInfo;
+
     public int getId() {
         return id;
     }
@@ -32,6 +38,21 @@ public class NodeInfoEntity {
 
     public void setConnectionProtocol(ConnectionProtocol connectionProtocol) {
         this.connectionProtocol = connectionProtocol;
+    }
+
+    public ScheduleInfoEntity getScheduleInfo() {
+        return scheduleInfo;
+    }
+
+    public void setScheduleInfo(ScheduleInfoEntity scheduleInfo) {
+        this.scheduleInfo = scheduleInfo;
+    }
+
+    public void addScheduleInfo(int interval, TimeUnit timeUnit) {
+        ScheduleInfoEntity scheduleInfoEntity = new ScheduleInfoEntity();
+        scheduleInfoEntity.setInterval(interval);
+        scheduleInfoEntity.setTimeUnit(timeUnit);
+        this.scheduleInfo = scheduleInfoEntity;
     }
 
     @Override
