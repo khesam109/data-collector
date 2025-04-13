@@ -1,7 +1,7 @@
-package ir.rahyabcp.collector.service.configloader.rest;
+package ir.rahyabcp.collector.service.internal.config.impl;
 
-import ir.rahyabcp.collector.common.CollectorConfig;
-import ir.rahyabcp.collector.service.configloader.ConfigLoader;
+import ir.rahyabcp.collector.common.DataCollectorConfig;
+import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Primary;
@@ -13,20 +13,20 @@ import org.springframework.stereotype.Service;
 class RestConfigLoader implements ConfigLoader {
 
     private final RestConfigFetcher restConfigFetcher;
-    private final ConfigRestResponseMapper configRestResponseMapper;
+    private final RestConfigResponseMapper restConfigResponseMapper;
 
     @Autowired
     public RestConfigLoader(
             RestConfigFetcher restConfigFetcher,
-            ConfigRestResponseMapper configRestResponseMapper
+            RestConfigResponseMapper restConfigResponseMapper
     ) {
         this.restConfigFetcher = restConfigFetcher;
-        this.configRestResponseMapper = configRestResponseMapper;
+        this.restConfigResponseMapper = restConfigResponseMapper;
     }
 
     @Override
-    public CollectorConfig load() {
-        return this.configRestResponseMapper.fromRestCollectorConfigResponse(
+    public DataCollectorConfig load() {
+        return this.restConfigResponseMapper.fromRestConfigResponse(
                 this.restConfigFetcher.fetch()
         );
     }

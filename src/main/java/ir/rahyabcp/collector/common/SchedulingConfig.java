@@ -1,5 +1,4 @@
 package ir.rahyabcp.collector.common;
 
-public class CollectorConfig {
-
+public record SchedulingConfig() {
 }

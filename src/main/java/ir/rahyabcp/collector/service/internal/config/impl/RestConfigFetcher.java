@@ -1,14 +1,14 @@
-package ir.rahyabcp.collector.service.configloader.rest;
+package ir.rahyabcp.collector.service.internal.config.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 import java.util.Map;
 
-@Component
+@Service
 class RestConfigFetcher {
 
     private final String url;

@@ -1,7 +1,7 @@
-package ir.rahyabcp.collector.service.configloader.database;
+package ir.rahyabcp.collector.service.internal.config.impl;
 
-import ir.rahyabcp.collector.common.CollectorConfig;
-import ir.rahyabcp.collector.service.configloader.ConfigLoader;
+import ir.rahyabcp.collector.common.DataCollectorConfig;
+import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 class DatabaseConfigLoader implements ConfigLoader {
 
     @Override
-    public CollectorConfig load() {
+    public DataCollectorConfig load() {
         throw new UnsupportedOperationException("this method is not implemented yet");
     }
 }
