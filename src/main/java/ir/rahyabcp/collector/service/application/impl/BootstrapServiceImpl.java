@@ -1,6 +1,6 @@
 package ir.rahyabcp.collector.service.application.impl;
 
-import ir.rahyabcp.collector.common.DataCollectorConfig;
+import ir.rahyabcp.collector.model.ApplicationConfig;
 import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import ir.rahyabcp.collector.service.internal.config.ConfigService;
 import jakarta.transaction.Transactional;
@@ -21,7 +21,7 @@ class BootstrapServiceImpl {
 
     @Transactional
     public void persistConfig() {
-        DataCollectorConfig config = this.configLoader.load();
+        ApplicationConfig config = this.configLoader.load();
         this.configService.persistConfig(config);
     }
 }

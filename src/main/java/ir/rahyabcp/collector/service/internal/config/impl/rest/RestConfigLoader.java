@@ -1,6 +1,6 @@
-package ir.rahyabcp.collector.service.internal.config.impl;
+package ir.rahyabcp.collector.service.internal.config.impl.rest;
 
-import ir.rahyabcp.collector.common.DataCollectorConfig;
+import ir.rahyabcp.collector.model.ApplicationConfig;
 import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -25,7 +25,7 @@ class RestConfigLoader implements ConfigLoader {
     }
 
     @Override
-    public DataCollectorConfig load() {
+    public ApplicationConfig load() {
         return this.restConfigResponseMapper.fromRestConfigResponse(
                 this.restConfigFetcher.fetch()
         );

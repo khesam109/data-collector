@@ -1,8 +1,8 @@
 package ir.rahyabcp.collector.service.internal.config;
 
-import ir.rahyabcp.collector.common.DataCollectorConfig;
+import ir.rahyabcp.collector.model.ApplicationConfig;
 
 public interface ConfigLoader {
 
-    DataCollectorConfig load();
+    ApplicationConfig load();
 }

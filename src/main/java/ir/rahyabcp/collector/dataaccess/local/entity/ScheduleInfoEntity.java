@@ -1,6 +1,6 @@
 package ir.rahyabcp.collector.dataaccess.local.entity;
 
-import ir.rahyabcp.collector.common.TimeUnit;
+import ir.rahyabcp.collector.common.IntervalUnit;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,9 +16,9 @@ public class ScheduleInfoEntity {
     @Column(name = "POOLING_INTERVAL", nullable = false)
     private int poolingInterval;
 
-    @Column(name = "TIME_UNIT", nullable = false)
+    @Column(name = "INTERVAL_UNIT", nullable = false)
     @Enumerated(EnumType.STRING)
-    private TimeUnit timeUnit;
+    private IntervalUnit intervalUnit;
 
     public int getId() {
         return id;
@@ -36,11 +36,11 @@ public class ScheduleInfoEntity {
         this.poolingInterval = interval;
     }
 
-    public TimeUnit getTimeUnit() {
-        return timeUnit;
+    public IntervalUnit getTimeUnit() {
+        return intervalUnit;
     }
 
-    public void setTimeUnit(TimeUnit timeUnit) {
-        this.timeUnit = timeUnit;
+    public void setTimeUnit(IntervalUnit intervalUnit) {
+        this.intervalUnit = intervalUnit;
     }
 }

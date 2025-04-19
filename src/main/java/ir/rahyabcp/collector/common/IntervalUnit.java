@@ -1,6 +1,6 @@
 package ir.rahyabcp.collector.common;
 
-public enum TimeUnit {
+public enum IntervalUnit {
 
     SECOND,
     MINUTE,

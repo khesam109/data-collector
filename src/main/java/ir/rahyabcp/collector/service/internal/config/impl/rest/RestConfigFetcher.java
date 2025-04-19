@@ -1,12 +1,10 @@
-package ir.rahyabcp.collector.service.internal.config.impl;
+package ir.rahyabcp.collector.service.internal.config.impl.rest;
 
+import ir.rahyabcp.collector.service.internal.config.impl.rest.dto.ConfigDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
-
-import java.util.Map;
 
 @Service
 class RestConfigFetcher {
@@ -28,9 +26,9 @@ class RestConfigFetcher {
         this.restClient = RestClient.builder().baseUrl(this.url + ":" + this.port).build();
     }
 
-    Map<String, Object> fetch() {
-        Map<String, Object> response = restClient.get().uri(this.path).retrieve().body(
-                new ParameterizedTypeReference<>() {}
+    ConfigDto fetch() {
+        ConfigDto response = this.restClient.get().uri(this.path).retrieve().body(
+                ConfigDto.class
         );
 
         if (response == null) {

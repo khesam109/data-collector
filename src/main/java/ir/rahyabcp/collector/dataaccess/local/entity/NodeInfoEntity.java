@@ -1,7 +1,7 @@
 package ir.rahyabcp.collector.dataaccess.local.entity;
 
 import ir.rahyabcp.collector.common.ConnectionProtocol;
-import ir.rahyabcp.collector.common.TimeUnit;
+import ir.rahyabcp.collector.common.IntervalUnit;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -48,10 +48,10 @@ public class NodeInfoEntity {
         this.scheduleInfo = scheduleInfo;
     }
 
-    public void addScheduleInfo(int poolingInterval, TimeUnit timeUnit) {
+    public void addScheduleInfo(int poolingInterval, IntervalUnit intervalUnit) {
         ScheduleInfoEntity scheduleInfoEntity = new ScheduleInfoEntity();
         scheduleInfoEntity.setPoolingInterval(poolingInterval);
-        scheduleInfoEntity.setTimeUnit(timeUnit);
+        scheduleInfoEntity.setTimeUnit(intervalUnit);
         this.scheduleInfo = scheduleInfoEntity;
     }
 
