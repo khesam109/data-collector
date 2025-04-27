@@ -1,7 +1,7 @@
-package ir.rahyabcp.collector.dataaccess.local.repository.impl;
+package ir.rahyabcp.collector.dataaccess.local.repository.nodeinfo.impl;
 
 import ir.rahyabcp.collector.dataaccess.local.entity.NodeInfoEntity;
-import ir.rahyabcp.collector.dataaccess.local.repository.NodeInfoRepository;
+import ir.rahyabcp.collector.dataaccess.local.repository.nodeinfo.NodeInfoRepository;
 import ir.rahyabcp.collector.exception.impl.NodeInfoNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

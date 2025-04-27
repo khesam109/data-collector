@@ -2,7 +2,7 @@ package ir.rahyabcp.collector.controller;
 
 import ir.rahyabcp.collector.common.ConnectionProtocol;
 import ir.rahyabcp.collector.dataaccess.local.entity.NodeInfoEntity;
-import ir.rahyabcp.collector.dataaccess.local.repository.NodeInfoRepository;
+import ir.rahyabcp.collector.dataaccess.local.repository.nodeinfo.NodeInfoRepository;
 import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,5 +1,7 @@
 package ir.rahyabcp.collector.model;
 
+import ir.rahyabcp.collector.common.ConnectionProtocol;
+
 public final class FtpCollectorConfig extends CollectorConfig {
 
     private final String host;
@@ -7,7 +9,8 @@ public final class FtpCollectorConfig extends CollectorConfig {
     private final String username;
     private final String password;
 
-    public FtpCollectorConfig(String host, int port, String username, String password) {
+    public FtpCollectorConfig(SchedulingConfig scheduling, String host, int port, String username, String password) {
+        super(ConnectionProtocol.FTP, scheduling, null);
         this.host = host;
         this.port = port;
         this.username = username;

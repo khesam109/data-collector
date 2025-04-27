@@ -1,4 +1,4 @@
-package ir.rahyabcp.collector.dataaccess.local.repository;
+package ir.rahyabcp.collector.dataaccess.local.repository.nodeinfo;
 
 import ir.rahyabcp.collector.dataaccess.local.entity.NodeInfoEntity;
 

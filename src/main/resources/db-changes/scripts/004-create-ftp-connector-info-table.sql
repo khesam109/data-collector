@@ -5,6 +5,7 @@
 CREATE TABLE DATA_COLLECTOR.FTP_CONNECTOR_INFO
 (
     ID               INT          PRIMARY KEY,
+    NODE_INFO_ID     INT          NOT NULL,
     HOST             VARCHAR(255) NOT NULL,
     PORT             INT          NOT NULL,
     USERNAME         VARCHAR(255) NOT NULL,

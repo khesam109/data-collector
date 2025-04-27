@@ -14,6 +14,9 @@ public class FtpConnectorInfoEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ftpConnectorInfoSequenceGenerator")
     private int id;
 
+    @Column(name = "NODE_INFO_ID", nullable = false)
+    private int nodeInfoId;
+
     @Column(name = "HOST", nullable = false)
     private String host;
 
@@ -35,6 +38,14 @@ public class FtpConnectorInfoEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getNodeInfoId() {
+        return nodeInfoId;
+    }
+
+    public void setNodeInfoId(int nodeInfoId) {
+        this.nodeInfoId = nodeInfoId;
     }
 
     public String getHost() {

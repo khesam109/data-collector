@@ -30,7 +30,11 @@ class RestConfigResponseMapper {
 
     private FtpCollectorConfig fromFtpCollectorDto(FtpCollectorDto dto) {
         return new FtpCollectorConfig(
-                dto.getHost(), dto.getPort(), dto.getUsername(), dto.getPassword()
+                getSchedulingConfig(dto.getScheduling()),
+                dto.getHost(),
+                dto.getPort(),
+                dto.getUsername(),
+                dto.getPassword()
         );
     }
 
@@ -44,5 +48,9 @@ class RestConfigResponseMapper {
 
     private WebSocketCollectorConfig fromWebSocketCollectorDto(WebSocketCollectorDto dto) {
         throw new UnsupportedOperationException("this method is not implemented yet");
+    }
+
+    private SchedulingConfig getSchedulingConfig(SchedulingDto dto) {
+        return new SchedulingConfig(dto.interval(), dto.unit());
     }
 }

@@ -29,9 +29,9 @@ spring:
 
 config:
   source:
-    type: db
+    type: rest
     rest:
-      url: localhost
-      port: 8585
+      url: https://project.free.beeceptor.com
+      port: 443
       path: /config
 

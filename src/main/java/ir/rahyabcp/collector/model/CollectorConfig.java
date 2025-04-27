@@ -4,31 +4,32 @@ import ir.rahyabcp.collector.common.ConnectionProtocol;
 
 public abstract class CollectorConfig {
 
-    private ConnectionProtocol connectionProtocol;
-    private SchedulingConfig scheduling;
-    private RetryPolicyConfig retryPolicy;
+    private final ConnectionProtocol connectionProtocol;
+    private final SchedulingConfig scheduling;
+    private final RetryPolicyConfig retryPolicy;
+
+    protected CollectorConfig(
+            ConnectionProtocol connectionProtocol,
+            SchedulingConfig scheduling,
+            RetryPolicyConfig retryPolicy
+    ) {
+        this.connectionProtocol = connectionProtocol;
+        this.scheduling = scheduling;
+        this.retryPolicy = retryPolicy;
+    }
+
 
     public ConnectionProtocol getConnectionProtocol() {
         return connectionProtocol;
     }
 
-    public void setConnectionProtocol(ConnectionProtocol connectionProtocol) {
-        this.connectionProtocol = connectionProtocol;
-    }
 
     public SchedulingConfig getScheduling() {
         return scheduling;
-    }
-
-    public void setScheduling(SchedulingConfig scheduling) {
-        this.scheduling = scheduling;
     }
 
     public RetryPolicyConfig getRetryPolicy() {
         return retryPolicy;
     }
 
-    public void setRetryPolicy(RetryPolicyConfig retryPolicy) {
-        this.retryPolicy = retryPolicy;
-    }
 }

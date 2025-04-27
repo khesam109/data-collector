@@ -1,4 +1,4 @@
-package ir.rahyabcp.collector.dataaccess.local.repository.impl;
+package ir.rahyabcp.collector.dataaccess.local.repository.nodeinfo.impl;
 
 import ir.rahyabcp.collector.dataaccess.local.entity.NodeInfoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
