@@ -2,34 +2,24 @@ package ir.rahyabcp.collector.model;
 
 import ir.rahyabcp.collector.common.ConnectionProtocol;
 
-public abstract class CollectorConfig {
+public abstract class DataNode {
 
     private final ConnectionProtocol connectionProtocol;
-    private final SchedulingConfig scheduling;
-    private final RetryPolicyConfig retryPolicy;
+    private final RetryPolicy retryPolicy;
 
-    protected CollectorConfig(
+    protected DataNode(
             ConnectionProtocol connectionProtocol,
-            SchedulingConfig scheduling,
-            RetryPolicyConfig retryPolicy
+            RetryPolicy retryPolicy
     ) {
         this.connectionProtocol = connectionProtocol;
-        this.scheduling = scheduling;
         this.retryPolicy = retryPolicy;
     }
-
 
     public ConnectionProtocol getConnectionProtocol() {
         return connectionProtocol;
     }
 
-
-    public SchedulingConfig getScheduling() {
-        return scheduling;
-    }
-
-    public RetryPolicyConfig getRetryPolicy() {
+    public RetryPolicy getRetryPolicy() {
         return retryPolicy;
     }
-
 }

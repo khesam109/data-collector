@@ -1,6 +1,6 @@
 package ir.rahyabcp.collector.model;
 
-public record RetryPolicyConfig(
+public record RetryPolicy(
 
 ) {
 }

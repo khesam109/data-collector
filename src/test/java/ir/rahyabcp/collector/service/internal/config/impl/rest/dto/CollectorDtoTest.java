@@ -3,7 +3,6 @@ package ir.rahyabcp.collector.service.internal.config.impl.rest.dto;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ir.rahyabcp.collector.common.ConnectionProtocol;
-import ir.rahyabcp.collector.common.IntervalUnit;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

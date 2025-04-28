@@ -1,9 +1,8 @@
-package ir.rahyabcp.collector.service.internal.config.impl.rest.dto;
+package ir.rahyabcp.collector.dataaccess.remote.config.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record SchedulingDto(
-
+public record ScheduleConfigResponse(
         @JsonProperty("interval") int interval
 ) {
 }
