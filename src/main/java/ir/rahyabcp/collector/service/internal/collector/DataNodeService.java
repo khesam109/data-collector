@@ -1,4 +1,4 @@
-package ir.rahyabcp.collector.service.application;
+package ir.rahyabcp.collector.service.internal.collector;
 
 import ir.rahyabcp.collector.model.DataNode;
 

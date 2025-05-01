@@ -93,4 +93,16 @@ public class FtpDataNode extends DataNode {
             return new FtpDataNode(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "FtpDataNode{" +
+                "host='" + host + '\'' +
+                ", port=" + port +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", remotePath='" + remotePath + '\'' +
+                ", localPath='" + localPath + '\'' +
+                '}';
+    }
 }

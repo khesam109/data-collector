@@ -11,13 +11,13 @@ import java.time.temporal.ChronoUnit;
 import java.util.concurrent.ScheduledFuture;
 
 @Service
-public class DataCollectionSchedulerService {
+public class CollectionSchedulerService {
 
     private final TaskScheduler taskScheduler;
     private ScheduledFuture<?> scheduledTask;
 
     @Autowired
-    public DataCollectionSchedulerService(
+    public CollectionSchedulerService(
             TaskScheduler taskScheduler
     ) {
         this.taskScheduler = taskScheduler;
