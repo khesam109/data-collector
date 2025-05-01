@@ -1,4 +1,4 @@
-package ir.rahyabcp.collector.service.internal.collector.impl;
+package ir.rahyabcp.collector.service.internal.datanode.impl;
 
 import ir.rahyabcp.collector.dataaccess.remote.node.dto.*;
 import ir.rahyabcp.collector.model.*;

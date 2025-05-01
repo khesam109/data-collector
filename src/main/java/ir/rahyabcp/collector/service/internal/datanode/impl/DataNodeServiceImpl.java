@@ -1,8 +1,8 @@
-package ir.rahyabcp.collector.service.internal.collector.impl;
+package ir.rahyabcp.collector.service.internal.datanode.impl;
 
 import ir.rahyabcp.collector.dataaccess.remote.node.DataNodeRemoteRepository;
 import ir.rahyabcp.collector.model.DataNode;
-import ir.rahyabcp.collector.service.internal.collector.DataNodeService;
+import ir.rahyabcp.collector.service.internal.datanode.DataNodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

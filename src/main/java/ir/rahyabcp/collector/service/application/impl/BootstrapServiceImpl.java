@@ -34,7 +34,7 @@ class BootstrapServiceImpl implements BootstrapService {
     public void bootstrap() {
         ApplicationScheduleConfig config = this.configLoader.load();
         this.collectionSchedulerService.scheduleTask(
-                this.collectionManagerService::startCollection, config
+                this.collectionManagerService::collect, config
         );
     }
 }
