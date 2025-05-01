@@ -1,12 +1,10 @@
 spring:
   application:
     name: data-collector
-
+bss:
+  url: http://localhost
+  port: 8585
 config:
   source:
     type: rest
-    rest:
-      url: https://project.free.beeceptor.com
-      port: 443
-      path: /config
 
