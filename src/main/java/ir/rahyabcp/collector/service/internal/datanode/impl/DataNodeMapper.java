@@ -37,6 +37,7 @@ class DataNodeMapper {
                 .password(dto.getPassword())
                 .remotePath(dto.getRemotePath())
                 .localPath(dto.getLocalPath())
+                .filePattern(dto.getFilePattern())
                 .build();
     }
 

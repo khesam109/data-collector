@@ -10,6 +10,7 @@ public final class FtpDataNodeDto extends DataNodeDto {
     private final String password;
     private final String remotePath;
     private final String localPath;
+    private final String filePattern;
 
     public FtpDataNodeDto(
             @JsonProperty("host") String host,
@@ -17,7 +18,8 @@ public final class FtpDataNodeDto extends DataNodeDto {
             @JsonProperty("username") String username,
             @JsonProperty("password") String password,
             @JsonProperty("remotePath") String remotePath,
-            @JsonProperty("localPath") String localPath
+            @JsonProperty("localPath") String localPath,
+            @JsonProperty("filePattern") String filePattern
     ) {
         super("FTP");
         this.host = host;
@@ -26,6 +28,7 @@ public final class FtpDataNodeDto extends DataNodeDto {
         this.password = password;
         this.remotePath = remotePath;
         this.localPath = localPath;
+        this.filePattern = filePattern;
     }
 
     public String getHost() {
@@ -50,5 +53,9 @@ public final class FtpDataNodeDto extends DataNodeDto {
 
     public String getLocalPath() {
         return localPath;
+    }
+
+    public String getFilePattern() {
+        return filePattern;
     }
 }

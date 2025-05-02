@@ -16,12 +16,12 @@ import java.util.Map;
 class CollectionManagerServiceImpl implements CollectionManagerService {
 
     private final DataNodeService dataNodeService;
-    private final Map<ConnectionProtocol, DataCollectionService> dataCollectionServices;
+    private final Map<ConnectionProtocol, DataCollectionService<? extends DataNode>> dataCollectionServices;
 
     @Autowired
     CollectionManagerServiceImpl(
             DataNodeService dataNodeService,
-            List<DataCollectionService> dataCollectionServices
+            List<DataCollectionService<? extends DataNode>> dataCollectionServices
     ) {
         this.dataNodeService = dataNodeService;
         this.dataCollectionServices = new HashMap<>();
@@ -37,9 +37,11 @@ class CollectionManagerServiceImpl implements CollectionManagerService {
     }
 
     private void collect(DataNode dataNode) {
-        DataCollectionService service = dataCollectionServices.get(dataNode.getConnectionProtocol());
+        DataCollectionService<? extends DataNode> service = dataCollectionServices.get(dataNode.getConnectionProtocol());
         if (service != null) {
-            service.collectAndProcess(dataNode);
+            @SuppressWarnings("unchecked")
+            DataCollectionService<DataNode> safeService = (DataCollectionService<DataNode>) service;
+            safeService.collectAndProcess(dataNode);
         } else {
             throw new IllegalStateException(
                     "No DataCollectionService found for protocol: " + dataNode.getConnectionProtocol()

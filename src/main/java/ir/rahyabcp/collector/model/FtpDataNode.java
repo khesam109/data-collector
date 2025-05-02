@@ -10,6 +10,7 @@ public class FtpDataNode extends DataNode {
     private final String password;
     private final String remotePath;
     private final String localPath;
+    private final String filePattern;
 
     private FtpDataNode(Builder builder) {
         super(ConnectionProtocol.FTP, null);
@@ -19,6 +20,7 @@ public class FtpDataNode extends DataNode {
         this.password = builder.password;
         this.remotePath = builder.remotePath;
         this.localPath = builder.localPath;
+        this.filePattern = builder.filePattern;
     }
 
     public String getHost() {
@@ -45,6 +47,10 @@ public class FtpDataNode extends DataNode {
         return localPath;
     }
 
+    public String getFilePattern() {
+        return filePattern;
+    }
+
     public static final class Builder {
         private String host = null;
         private Integer port = null;
@@ -52,6 +58,7 @@ public class FtpDataNode extends DataNode {
         private String password = null;
         private String remotePath = null;
         private String localPath = null;
+        private String filePattern = null;
 
         public Builder() {
         }
@@ -86,8 +93,13 @@ public class FtpDataNode extends DataNode {
             return this;
         }
 
+        public Builder filePattern(String val) {
+            filePattern = val;
+            return this;
+        }
+
         public FtpDataNode build() {
-            if (host == null || port == null || username == null || password == null || remotePath == null || localPath == null) {
+            if (host == null || port == null || username == null || password == null || remotePath == null || localPath == null || filePattern == null) {
                 throw new IllegalStateException("Not all required fields are set");
             }
             return new FtpDataNode(this);
@@ -103,6 +115,7 @@ public class FtpDataNode extends DataNode {
                 ", password='" + password + '\'' +
                 ", remotePath='" + remotePath + '\'' +
                 ", localPath='" + localPath + '\'' +
+                ", filePattern='" + filePattern + '\'' +
                 '}';
     }
 }

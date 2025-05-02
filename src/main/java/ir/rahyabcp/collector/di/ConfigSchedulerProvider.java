@@ -6,10 +6,10 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Component;
 
 @Component
-class TaskSchedulerProvider {
+class ConfigSchedulerProvider {
 
     @Bean
-    TaskScheduler provideDataCollectionTaskScheduler() {
+    TaskScheduler provideConfigTaskScheduler() {
         ThreadPoolTaskScheduler threadPoolTaskScheduler = new ThreadPoolTaskScheduler();
         threadPoolTaskScheduler.setPoolSize(1);
         threadPoolTaskScheduler.initialize();

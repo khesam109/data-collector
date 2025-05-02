@@ -6,6 +6,8 @@ import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Primary;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,6 +28,7 @@ class RestConfigLoader implements ConfigLoader {
     }
 
     @Override
+    @Retryable(maxAttempts = 5, backoff = @Backoff(delay = 10000))
     public ApplicationScheduleConfig load() {
         return this.restConfigResponseMapper.fromScheduleConfigResponse(
                 this.scheduleConfigRemoteRepository.fetch()

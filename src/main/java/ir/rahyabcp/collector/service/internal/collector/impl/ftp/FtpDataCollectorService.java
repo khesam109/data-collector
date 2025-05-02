@@ -29,7 +29,9 @@ class FtpDataCollectorService implements DataCollectionService<FtpDataNode> {
         FTPClient ftpClient = new FTPClient();
         try {
             this.ftpConnectionHandlerService.connect(ftpClient, dataNode);
-            this.ftpFileFilter.getMatchingFiles(ftpClient, ".*\\.txt$").forEach(System.out::println);
+            this.ftpFileFilter.toBeCollected(
+                    ftpClient, dataNode.getFilePattern()
+            ).forEach(System.out::println);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         } finally {

@@ -13,9 +13,7 @@ public class DataNodeRemoteRepository {
     private final WebClient webClient;
 
     @Autowired
-    public DataNodeRemoteRepository(
-            WebClient webClient
-    ) {
+    public DataNodeRemoteRepository(WebClient webClient) {
         this.webClient = webClient;
     }
 
