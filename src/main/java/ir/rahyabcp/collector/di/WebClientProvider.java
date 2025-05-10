@@ -12,6 +12,8 @@ import java.time.Duration;
 @Component
 class WebClientProvider {
 
+    private static final String RESOURCE_PATH = "/saba/mrp/ws/usrequestex/";
+
     @Bean
     HttpClient provideHttpClient(
             @Value("${bss.url}") String url,
@@ -31,5 +33,10 @@ class WebClientProvider {
                 .clientConnector(new ReactorClientHttpConnector(httpClient))
                 .codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(16 * 1024 * 1024))
                 .build();
+    }
+
+    @Bean("resourcePath")
+    String provideResourcePath() {
+        return RESOURCE_PATH;
     }
 }

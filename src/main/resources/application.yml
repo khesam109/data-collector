@@ -1,10 +1,14 @@
 spring:
   application:
-    name: data-collector
+    name: "data-collector"
 bss:
-  url: http://localhost
+  url: "http://localhost"
   port: 8585
 config:
   source:
-    type: rest
+    type: "rest"
+authentication:
+  username: "FARZAD"
+  password: "fja123"
+  service: ""
 
