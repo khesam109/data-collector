@@ -9,7 +9,9 @@ public abstract class BaseResponse<T> {
     @JsonProperty("response_body") private final T responseBody;
 
     @JsonCreator
-    protected BaseResponse(ResponseHeader responseHeader, T responseBody) {
+    protected BaseResponse(
+            @JsonProperty("response_header") ResponseHeader responseHeader,
+            @JsonProperty("response_body") T responseBody) {
         this.responseHeader = responseHeader;
         this.responseBody = responseBody;
     }

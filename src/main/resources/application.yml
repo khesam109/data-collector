@@ -1,6 +1,7 @@
 spring:
   application:
     name: "data-collector"
+    process-id: 1141
 bss:
   url: "http://localhost"
   port: 8585
