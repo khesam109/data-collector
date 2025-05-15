@@ -24,7 +24,7 @@ public class UserLogoutRemoteRepository {
         this.requestHeaderFactory = requestHeaderFactory;
     }
 
-    public void revokeToken() {
+    public void callUserLogoutApi() {
         this.webClient.post().uri(resourcePath).bodyValue(
                 new UserLogoutRequest(
                         this.requestHeaderFactory.userLogout(),

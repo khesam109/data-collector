@@ -4,13 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record UserLoginRequestBody(
 
-        @JsonProperty("authentication") Authentication authentication
+        @JsonProperty("authentication")
+        AuthenticationDto authentication
 ) {
-
-    public record Authentication(
-            @JsonProperty("username") String username,
-            @JsonProperty("password")String password,
-            @JsonProperty("service")String service
-    ) {
-    }
 }

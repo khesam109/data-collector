@@ -27,7 +27,7 @@ public class ConfigListRemoteRepository {
         this.requestHeaderFactory = requestHeaderFactory;
     }
 
-    public ConfigListResponse getPublicToken(ConfigListRequestBody body) {
+    public ConfigListResponse callConfigListApi(ConfigListRequestBody body) {
         return this.webClient.post().uri(resourcePath).bodyValue(
                 new ConfigListRequest(
                         this.requestHeaderFactory.configList(),

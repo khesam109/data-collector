@@ -1,4 +1,4 @@
-package ir.rahyabcp.collector.dataaccess.remote._node.dto;
+package ir.rahyabcp.collector.dataaccess.remote.datanodelist.dto;
 
 import ir.rahyabcp.collector.dataaccess.remote.BaseRequest;
 import ir.rahyabcp.collector.dataaccess.remote.RequestHeader;

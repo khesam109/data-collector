@@ -46,6 +46,14 @@ public class RequestHeaderFactory {
         );
     }
 
+    public RequestHeader processList() {
+        return new RequestHeader(
+                this.tokenService.getToken(),
+                "coa.process_list",
+                this.systemDate()
+        );
+    }
+
     private String systemDate() {
         return LocalDateTime.now().format(this.dateTimeFormatter);
     }

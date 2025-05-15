@@ -9,7 +9,10 @@ public abstract class BaseRequest<T> {
     @JsonProperty("body") private final T requestBody;
 
     @JsonCreator
-    protected BaseRequest(RequestHeader requestHeader, T requestBody) {
+    protected BaseRequest(
+            RequestHeader requestHeader,
+            T requestBody
+    ) {
         this.requestHeader = requestHeader;
         this.requestBody = requestBody;
     }

@@ -27,7 +27,7 @@ public class UserLoginRemoteRepository {
         this.requestHeaderFactory = requestHeaderFactory;
     }
 
-    public UserLoginResponse getToken(UserLoginRequestBody body, String publicToken) {
+    public UserLoginResponse callUserLoginApi(UserLoginRequestBody body, String publicToken) {
         return this.webClient.post().uri(resourcePath).bodyValue(
                 new UserLoginRequest(
                         this.requestHeaderFactory.userLogin(publicToken),

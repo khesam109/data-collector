@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public abstract class BaseResponse<T> {
 
-    @JsonProperty("response_header") private final ResponseHeader responseHeader;
-    @JsonProperty("response_body") private final T responseBody;
+    private final ResponseHeader responseHeader;
+    private final T responseBody;
 
     @JsonCreator
     protected BaseResponse(

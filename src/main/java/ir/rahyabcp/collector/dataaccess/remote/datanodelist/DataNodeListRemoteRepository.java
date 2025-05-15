@@ -1,9 +1,9 @@
-package ir.rahyabcp.collector.dataaccess.remote._node;
+package ir.rahyabcp.collector.dataaccess.remote.datanodelist;
 
 import ir.rahyabcp.collector.dataaccess.remote.RequestHeader;
-import ir.rahyabcp.collector.dataaccess.remote._node.dto.DataNodeListRequest;
-import ir.rahyabcp.collector.dataaccess.remote._node.dto.DataNodeListRequestBody;
-import ir.rahyabcp.collector.dataaccess.remote._node.dto.DataNodeListResponse;
+import ir.rahyabcp.collector.dataaccess.remote.datanodelist.dto.DataNodeListRequest;
+import ir.rahyabcp.collector.dataaccess.remote.datanodelist.dto.DataNodeListRequestBody;
+import ir.rahyabcp.collector.dataaccess.remote.datanodelist.dto.DataNodeListResponse;
 import ir.rahyabcp.collector.service.internal.usermanagement.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

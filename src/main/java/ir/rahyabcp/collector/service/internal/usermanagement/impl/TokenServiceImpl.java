@@ -53,7 +53,7 @@ class TokenServiceImpl implements TokenService {
     }
 
     private String getPublicToken() {
-        ConfigListResponse configListResponse = this.configListRemoteRepository.getPublicToken(
+        ConfigListResponse configListResponse = this.configListRemoteRepository.callConfigListApi(
                 new ConfigListRequestBody(
                         "desktop",
                         "Windows10",
@@ -73,7 +73,7 @@ class TokenServiceImpl implements TokenService {
     }
 
     private String getAccessToken(String publicToken) {
-        UserLoginResponse userLoginResponse = this.userLoginRemoteRepository.getToken(
+        UserLoginResponse userLoginResponse = this.userLoginRemoteRepository.callUserLoginApi(
                 new UserLoginRequestBody(
                         new UserLoginRequestBody.Authentication(
                                 this.username,
