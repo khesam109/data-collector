@@ -1,6 +1,6 @@
 package ir.rahyabcp.collector.scheduler;
 
-import ir.rahyabcp.collector.config.ApplicationScheduleConfig;
+import ir.rahyabcp.collector.model.SchedulingInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.support.PeriodicTrigger;
@@ -23,7 +23,7 @@ public class CollectionSchedulerService {
         this.taskScheduler = taskScheduler;
     }
 
-    public void scheduleTask(Runnable task, ApplicationScheduleConfig config) {
+    public void scheduleTask(Runnable task, SchedulingInfo config) {
         cancelExistingTask();
 
         PeriodicTrigger trigger = new PeriodicTrigger(

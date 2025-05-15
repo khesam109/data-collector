@@ -1,8 +1,8 @@
 package ir.rahyabcp.collector.service.internal.config;
 
-import ir.rahyabcp.collector.config.ApplicationScheduleConfig;
+import ir.rahyabcp.collector.model.SchedulingInfo;
 
 public interface ConfigLoader {
 
-    ApplicationScheduleConfig load();
+    SchedulingInfo load();
 }

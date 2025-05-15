@@ -5,6 +5,6 @@ import ir.rahyabcp.collector.common.ConnectionProtocol;
 public class WebSocketDataNode extends DataNode {
 
     public WebSocketDataNode() {
-        super(ConnectionProtocol.WEB_SOCKET, null);
+        super(0, "", null, null, ConnectionProtocol.WEB_SOCKET, null, null, null);
     }
 }

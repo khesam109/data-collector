@@ -5,6 +5,6 @@ import ir.rahyabcp.collector.common.ConnectionProtocol;
 public class RestDataNode extends DataNode {
 
     public RestDataNode() {
-        super(ConnectionProtocol.REST_API, null);
+        super(0, "", null, null, ConnectionProtocol.REST_API, null, null, null);
     }
 }

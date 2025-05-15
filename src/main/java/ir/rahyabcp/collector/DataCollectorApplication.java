@@ -1,5 +1,6 @@
 package ir.rahyabcp.collector;
 
+import ir.rahyabcp.collector.config.ApplicationInfoConfig;
 import ir.rahyabcp.collector.config.AuthenticationInfoConfig;
 import ir.rahyabcp.collector.config.SystemInfoConfig;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +12,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 @EnableRetry
 @EnableConfigurationProperties({
+		ApplicationInfoConfig.class,
         AuthenticationInfoConfig.class,
         SystemInfoConfig.class
 })

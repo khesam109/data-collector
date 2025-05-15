@@ -3,10 +3,10 @@ package ir.rahyabcp.collector.service.internal.config.impl.rest;
 import ir.rahyabcp.collector.api.processlist.ProcessListRemoteRepository;
 import ir.rahyabcp.collector.api.processlist.dto.ProcessListRequestBody;
 import ir.rahyabcp.collector.api.processlist.dto.ProcessListResponse;
-import ir.rahyabcp.collector.config.ApplicationScheduleConfig;
+import ir.rahyabcp.collector.config.ApplicationInfoConfig;
+import ir.rahyabcp.collector.model.SchedulingInfo;
 import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Primary;
 import org.springframework.retry.annotation.Backoff;
@@ -18,27 +18,34 @@ import org.springframework.stereotype.Service;
 @ConditionalOnProperty(name = "config.source.type", havingValue = "rest")
 class RestConfigLoader implements ConfigLoader {
 
-    private final Integer processId;
+    private final ApplicationInfoConfig applicationInfoConfig;
     private final ProcessListRemoteRepository processListRemoteRepository;
 
     @Autowired
     RestConfigLoader(
-            @Value("${spring.application.process-id}") Integer processId,
+            ApplicationInfoConfig applicationInfoConfig,
             ProcessListRemoteRepository processListRemoteRepository
     ) {
-        this.processId = processId;
+        this.applicationInfoConfig = applicationInfoConfig;
         this.processListRemoteRepository = processListRemoteRepository;
     }
-
-    //FIXME: the process_list_response should contains interval!
+    /**
+     * This method is responsible for loading the configuration from the remote repository.
+     * It uses the {@link ProcessListRemoteRepository} to call the API and retrieve the configuration.
+     * The method is annotated with {@link Retryable} to handle transient errors and retry the operation.
+     *
+     * @return SchedulingInfo object containing the polling interval
+     */
     @Override
     @Retryable(maxAttempts = 5, backoff = @Backoff(delay = 10000))
-    public ApplicationScheduleConfig load() {
+    public SchedulingInfo load() {
         ProcessListResponse response = this.processListRemoteRepository.callProcessListApi(createProcessListBody());
-        return new ApplicationScheduleConfig(0);
+        return new SchedulingInfo(response.getResponseBody().data().getFirst().pollingInterval());
     }
 
     private ProcessListRequestBody createProcessListBody() {
-        return new ProcessListRequestBody(processId);
+        return new ProcessListRequestBody(
+                this.applicationInfoConfig.getProcessId()
+        );
     }
 }

@@ -1,7 +1,7 @@
 spring:
   application:
     name: "data-collector"
-    process-id: 1141
+
 system:
   info:
     device-type: "server"
@@ -16,6 +16,15 @@ system:
     language-code: "EN"
     partner-domain: ""
     partner-token: ""
+application:
+  info:
+    process-id: 1141
+
+authentication:
+  info:
+    username: "FARZAD"
+    password: "fja123"
+    service: ""
 
 bss:
   url: "http://localhost"
@@ -23,9 +32,5 @@ bss:
 config:
   source:
     type: "rest"
-authentication:
-  info:
-    username: "FARZAD"
-    password: "fja123"
-    service: ""
+
 

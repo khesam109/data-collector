@@ -34,6 +34,10 @@ public class RequestHeaderFactory {
         return createRequestHeader(token, "coa.process_list");
     }
 
+    public RequestHeader dataNodeList(String token) {
+        return createRequestHeader(token, "dpa.datanode_list");
+    }
+
     private RequestHeader createRequestHeader(String token, String serviceName) {
         return new RequestHeader(token, serviceName, this.systemDate());
     }

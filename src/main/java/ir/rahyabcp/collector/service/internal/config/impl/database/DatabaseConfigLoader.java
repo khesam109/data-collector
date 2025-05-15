@@ -1,6 +1,6 @@
 package ir.rahyabcp.collector.service.internal.config.impl.database;
 
-import ir.rahyabcp.collector.config.ApplicationScheduleConfig;
+import ir.rahyabcp.collector.model.SchedulingInfo;
 import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 class DatabaseConfigLoader implements ConfigLoader {
 
     @Override
-    public ApplicationScheduleConfig load() {
+    public SchedulingInfo load() {
         throw new UnsupportedOperationException("this method is not implemented yet");
     }
 }

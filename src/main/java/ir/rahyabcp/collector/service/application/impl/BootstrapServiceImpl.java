@@ -1,6 +1,6 @@
 package ir.rahyabcp.collector.service.application.impl;
 
-import ir.rahyabcp.collector.config.ApplicationScheduleConfig;
+import ir.rahyabcp.collector.model.SchedulingInfo;
 import ir.rahyabcp.collector.scheduler.CollectionSchedulerService;
 import ir.rahyabcp.collector.service.application.BootstrapService;
 import ir.rahyabcp.collector.service.application.CollectionManagerService;
@@ -37,7 +37,7 @@ class BootstrapServiceImpl implements BootstrapService {
     @EventListener(ApplicationReadyEvent.class)
     public void bootstrap() {
         this.login();
-        ApplicationScheduleConfig config = this.configLoader.load();
+        SchedulingInfo config = this.configLoader.load();
         this.collectionSchedulerService.scheduleTask(
                 this.collectionManagerService::collect, config
         );
