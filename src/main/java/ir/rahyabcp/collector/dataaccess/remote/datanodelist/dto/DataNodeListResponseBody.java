@@ -9,6 +9,6 @@ import java.util.List;
 public record DataNodeListResponseBody(
 
         @JsonProperty("data")
-        List<DataNodeDto> dataNodes
+        List<DataNodeDto> data
 ) {
 }

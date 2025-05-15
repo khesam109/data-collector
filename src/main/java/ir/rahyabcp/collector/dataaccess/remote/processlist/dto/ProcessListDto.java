@@ -2,7 +2,7 @@ package ir.rahyabcp.collector.dataaccess.remote.processlist.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record DataDto(
+public record ProcessListDto(
 
         @JsonProperty("process_id")
         int processId,

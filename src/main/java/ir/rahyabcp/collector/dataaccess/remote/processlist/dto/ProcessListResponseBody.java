@@ -7,6 +7,6 @@ import java.util.List;
 public record ProcessListResponseBody(
 
         @JsonProperty("data")
-        List<DataDto> data
+        List<ProcessListDto> data
 ) {
 }

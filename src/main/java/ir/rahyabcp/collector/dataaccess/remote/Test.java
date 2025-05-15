@@ -547,6 +547,6 @@ public class Test {
                json, DataNodeListResponse.class
         );
 
-        System.out.println(response.getResponseBody().dataNodes().size());
+        System.out.println(response.getResponseBody().data().size());
     }
 }
