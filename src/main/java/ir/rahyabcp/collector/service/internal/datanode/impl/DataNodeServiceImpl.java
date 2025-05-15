@@ -12,15 +12,15 @@ import java.util.List;
 class DataNodeServiceImpl implements DataNodeService {
 
     private final DataNodeListRemoteRepository dataNodeListRemoteRepository;
-    private final DataNodeMapper dataNodeMapper;
+//    private final DataNodeMapper dataNodeMapper;
 
     @Autowired
     DataNodeServiceImpl(
-            DataNodeListRemoteRepository dataNodeListRemoteRepository,
-            DataNodeMapper dataNodeMapper
+            DataNodeListRemoteRepository dataNodeListRemoteRepository
+//            DataNodeMapper dataNodeMapper
     ) {
         this.dataNodeListRemoteRepository = dataNodeListRemoteRepository;
-        this.dataNodeMapper = dataNodeMapper;
+//        this.dataNodeMapper = dataNodeMapper;
     }
 
     @Override

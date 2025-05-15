@@ -1,6 +1,5 @@
 package ir.rahyabcp.collector.dataaccess.remote;
 
-import ir.rahyabcp.collector.service.internal.usermanagement.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,48 +9,33 @@ import java.time.format.DateTimeFormatter;
 @Component
 public class RequestHeaderFactory {
 
-    private final TokenService tokenService;
     private final DateTimeFormatter dateTimeFormatter;
 
     @Autowired
     public RequestHeaderFactory(
-            TokenService tokenService,
             DateTimeFormatter dateTimeFormatter
     ) {
-        this.tokenService = tokenService;
         this.dateTimeFormatter = dateTimeFormatter;
     }
 
     public RequestHeader configList() {
-        return new RequestHeader(
-                null,
-                "sma.config_list",
-                this.systemDate()
-        );
+        return createRequestHeader(null, "sma.config_list");
     }
 
     public RequestHeader userLogin(String publicToken) {
-        return new RequestHeader(
-                publicToken,
-                "sma.user_login",
-                this.systemDate()
-        );
+        return createRequestHeader(publicToken, "sma.user_login");
     }
 
-    public RequestHeader userLogout() {
-        return new RequestHeader(
-                this.tokenService.getToken(),
-                "sma.sma.user_logout",
-                this.systemDate()
-        );
+    public RequestHeader userLogout(String token) {
+        return createRequestHeader(token, "sma.sma.user_logout");
     }
 
-    public RequestHeader processList() {
-        return new RequestHeader(
-                this.tokenService.getToken(),
-                "coa.process_list",
-                this.systemDate()
-        );
+    public RequestHeader processList(String token) {
+        return createRequestHeader(token, "coa.process_list");
+    }
+
+    private RequestHeader createRequestHeader(String token, String serviceName) {
+        return new RequestHeader(token, serviceName, this.systemDate());
     }
 
     private String systemDate() {

@@ -1,17 +1,19 @@
 package ir.rahyabcp.collector.service.internal.usermanagement.impl;
 
+import ir.rahyabcp.collector.config.AuthenticationInfoConfig;
+import ir.rahyabcp.collector.config.SystemInfoConfig;
 import ir.rahyabcp.collector.dataaccess.remote.configlist.ConfigListRemoteRepository;
 import ir.rahyabcp.collector.dataaccess.remote.configlist.dto.ConfigListRequestBody;
 import ir.rahyabcp.collector.dataaccess.remote.configlist.dto.ConfigListResponse;
+import ir.rahyabcp.collector.dataaccess.remote.configlist.dto.PartnerDto;
 import ir.rahyabcp.collector.dataaccess.remote.userlogin.UserLoginRemoteRepository;
+import ir.rahyabcp.collector.dataaccess.remote.userlogin.dto.AuthenticationDto;
 import ir.rahyabcp.collector.dataaccess.remote.userlogin.dto.UserLoginRequestBody;
 import ir.rahyabcp.collector.dataaccess.remote.userlogin.dto.UserLoginResponse;
 import ir.rahyabcp.collector.service.internal.usermanagement.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Service
@@ -21,23 +23,20 @@ class TokenServiceImpl implements TokenService {
 
     private final ConfigListRemoteRepository configListRemoteRepository;
     private final UserLoginRemoteRepository userLoginRemoteRepository;
-    private final String username;
-    private final String password;
-    private final String service;
+    private final AuthenticationInfoConfig authenticationInfoConfig;
+    private final SystemInfoConfig systemInfoConfig;
 
     @Autowired
     TokenServiceImpl(
             ConfigListRemoteRepository configListRemoteRepository,
             UserLoginRemoteRepository userLoginRemoteRepository,
-            @Value("${authentication.username}") String username,
-            @Value("${authentication.password}") String password,
-            @Value("${authentication.service}") String service
+            AuthenticationInfoConfig authenticationInfoConfig,
+            SystemInfoConfig systemInfoConfig
     ) {
         this.configListRemoteRepository = configListRemoteRepository;
         this.userLoginRemoteRepository = userLoginRemoteRepository;
-        this.username = username;
-        this.password = password;
-        this.service = service;
+        this.authenticationInfoConfig = authenticationInfoConfig;
+        this.systemInfoConfig = systemInfoConfig;
     }
 
     @Override
@@ -55,17 +54,20 @@ class TokenServiceImpl implements TokenService {
     private String getPublicToken() {
         ConfigListResponse configListResponse = this.configListRemoteRepository.callConfigListApi(
                 new ConfigListRequestBody(
-                        "desktop",
-                        "Windows10",
-                        "Chrome",
-                        1006,
-                        "1.0",
-                        "",
-                        1001,
-                        1001,
-                        new ConfigListRequestBody.Partner("", ""),
-                        List.of(),
-                        "EN"
+                        this.systemInfoConfig.getDeviceType(),
+                        this.systemInfoConfig.getOs(),
+                        this.systemInfoConfig.getBrowser(),
+                        this.systemInfoConfig.getChannelId(),
+                        this.systemInfoConfig.getChannelVersion(),
+                        this.systemInfoConfig.getDeviceId(),
+                        this.systemInfoConfig.getSystemId(),
+                        this.systemInfoConfig.getBusinessCenterId(),
+                        new PartnerDto(
+                                this.systemInfoConfig.getPartnerDomain(),
+                                this.systemInfoConfig.getPartnerToken()
+                        ),
+                        this.systemInfoConfig.getTechnologies(),
+                        this.systemInfoConfig.getLanguageCode()
                 )
         );
 
@@ -75,10 +77,10 @@ class TokenServiceImpl implements TokenService {
     private String getAccessToken(String publicToken) {
         UserLoginResponse userLoginResponse = this.userLoginRemoteRepository.callUserLoginApi(
                 new UserLoginRequestBody(
-                        new UserLoginRequestBody.Authentication(
-                                this.username,
-                                this.password,
-                                this.service
+                        new AuthenticationDto(
+                                this.authenticationInfoConfig.getUsername(),
+                                this.authenticationInfoConfig.getPassword(),
+                                this.authenticationInfoConfig.getService()
                         )
                 ),
                 publicToken

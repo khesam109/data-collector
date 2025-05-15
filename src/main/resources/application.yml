@@ -2,6 +2,21 @@ spring:
   application:
     name: "data-collector"
     process-id: 1141
+system:
+  info:
+    device-type: "server"
+    os: "linux"
+    browser: ""
+    channel-id: 1006
+    channel-version: "1.0"
+    device-id: ""
+    system-id: 1001
+    business-center-id: 1001
+    technologies: []
+    language-code: "EN"
+    partner-domain: ""
+    partner-token: ""
+
 bss:
   url: "http://localhost"
   port: 8585
@@ -9,7 +24,8 @@ config:
   source:
     type: "rest"
 authentication:
-  username: "FARZAD"
-  password: "fja123"
-  service: ""
+  info:
+    username: "FARZAD"
+    password: "fja123"
+    service: ""
 
