@@ -1,9 +1,9 @@
 package ir.rahyabcp.collector.service.internal.config.impl.rest;
 
+import ir.rahyabcp.collector.api.processlist.ProcessListRemoteRepository;
+import ir.rahyabcp.collector.api.processlist.dto.ProcessListRequestBody;
+import ir.rahyabcp.collector.api.processlist.dto.ProcessListResponse;
 import ir.rahyabcp.collector.config.ApplicationScheduleConfig;
-import ir.rahyabcp.collector.dataaccess.remote.processlist.ProcessListRemoteRepository;
-import ir.rahyabcp.collector.dataaccess.remote.processlist.dto.ProcessListRequestBody;
-import ir.rahyabcp.collector.dataaccess.remote.processlist.dto.ProcessListResponse;
 import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
