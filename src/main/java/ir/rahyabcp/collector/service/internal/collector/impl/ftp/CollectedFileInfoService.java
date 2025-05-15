@@ -1,6 +1,6 @@
 package ir.rahyabcp.collector.service.internal.collector.impl.ftp;
 
-import ir.rahyabcp.collector.dataaccess.remote.node.CollectedFileInfoRemoteRepository;
+import ir.rahyabcp.collector.dataaccess.remote._node.CollectedFileInfoRemoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

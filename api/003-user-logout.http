@@ -1,0 +1,16 @@
+POST http://localhost:7011/saba/mrp/ws/usrequestex
+Accept: application/json
+Content-Type: application/json
+
+{
+  "header": {
+    "token": "01PRI----------------000000000001383500000000000020730000EXTERNALEN-----------------2025040716075600003600----------------999999999900000010060000000000011984000000000100026490----------------Ha11QkegIxW28NdiCPTKHuPMJ/soCpUz5NjIMMAlj9bb3Pr/3YGoKQ==Ha11Qke0",
+    "service_name": "sma.user_logout",
+    "sysdate": "20220606010203"
+  },
+  "body": {}
+}
+
+
+
+###

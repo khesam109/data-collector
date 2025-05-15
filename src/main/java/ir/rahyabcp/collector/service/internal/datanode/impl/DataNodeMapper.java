@@ -1,6 +1,6 @@
 package ir.rahyabcp.collector.service.internal.datanode.impl;
 
-import ir.rahyabcp.collector.dataaccess.remote.node.dto.*;
+import ir.rahyabcp.collector.dataaccess.remote._node.dto.DataNodeDto;
 import ir.rahyabcp.collector.model.*;
 import org.springframework.stereotype.Component;
 

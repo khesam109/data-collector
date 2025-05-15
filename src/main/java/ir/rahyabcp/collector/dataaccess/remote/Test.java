@@ -2,7 +2,7 @@ package ir.rahyabcp.collector.dataaccess.remote;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ir.rahyabcp.collector.dataaccess.remote.node.dto.rebrand.DataNodeListResponse;
+import ir.rahyabcp.collector.dataaccess.remote._node.dto.DataNodeListResponse;
 
 public class Test {
 
@@ -547,6 +547,6 @@ public class Test {
                json, DataNodeListResponse.class
         );
 
-        System.out.println(response.getResponseBody().getDataNodes().size());
+        System.out.println(response.getResponseBody().dataNodes().size());
     }
 }

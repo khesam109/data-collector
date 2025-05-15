@@ -1,7 +1,7 @@
 package ir.rahyabcp.collector.service.internal.config.impl.rest;
 
 import ir.rahyabcp.collector.config.ApplicationScheduleConfig;
-import ir.rahyabcp.collector.dataaccess.remote.config.dto.ScheduleConfigResponse;
+import ir.rahyabcp.collector.dataaccess.remote._config.dto.ScheduleConfigResponse;
 import org.springframework.stereotype.Component;
 
 @Component

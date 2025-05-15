@@ -1,0 +1,22 @@
+POST http://localhost:7011/saba/mrp/ws/usrequestex
+Accept: application/json
+Content-Type: application/json
+
+{
+  "header": {
+    "token": "01PUB----------------000000000001497900000000000000030000EXTERNALEN-----------------2025050709181500003600----------------999999999900000010060000000000013115000000000100027859----------------BaRoBNL3+mfD9/rypy+8KCShsRR4+a6gPrIKd9UMkoZMoJvi099ZLA==BaRoBNL0",
+    "service_name": "sma.user_login",
+    "sysdate": "20220601010203"
+  },
+  "body": {
+    "authentication": {
+      "username": "FARZAD",
+      "password": "fja123",
+      "service": ""
+    }
+  }
+}
+
+
+
+###

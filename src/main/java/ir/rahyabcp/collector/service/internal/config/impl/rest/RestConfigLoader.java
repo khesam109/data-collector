@@ -1,7 +1,7 @@
 package ir.rahyabcp.collector.service.internal.config.impl.rest;
 
 import ir.rahyabcp.collector.config.ApplicationScheduleConfig;
-import ir.rahyabcp.collector.dataaccess.remote.config.ScheduleConfigRemoteRepository;
+import ir.rahyabcp.collector.dataaccess.remote._config.ScheduleConfigRemoteRepository;
 import ir.rahyabcp.collector.service.internal.config.ConfigLoader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

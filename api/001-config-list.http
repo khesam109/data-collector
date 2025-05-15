@@ -1,0 +1,30 @@
+POST http://localhost:7011/saba/mrp/ws/usrequestex
+Accept: application/json
+Content-Type: application/json
+
+{
+  "header": {
+    "service_name": "sma.config_list",
+    "sysdate": "20220601010203"
+  },
+  "body": {
+    "device_type": "desktop",
+    "OS": "Windows10",
+    "browser": "Chrome",
+    "channel_id": 1006,
+    "channel_version": "1.0",
+    "device_id": "",
+    "system_id": 1001,
+    "businesscenter_id": 1001,
+    "partner": {
+      "domain": "",
+      "token": ""
+    },
+    "technologies": [],
+    "language_code": "EN"
+  }
+}
+
+
+
+###

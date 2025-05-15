@@ -1,11 +1,11 @@
 package ir.rahyabcp.collector.service.internal.usermanagement.impl;
 
-import ir.rahyabcp.collector.dataaccess.remote.usermanagement.ConfigListRemoteRepository;
-import ir.rahyabcp.collector.dataaccess.remote.usermanagement.UserLoginRemoteRepository;
-import ir.rahyabcp.collector.dataaccess.remote.usermanagement.dto.ConfigListRequestBody;
-import ir.rahyabcp.collector.dataaccess.remote.usermanagement.dto.ConfigListResponse;
-import ir.rahyabcp.collector.dataaccess.remote.usermanagement.dto.UserLoginRequestBody;
-import ir.rahyabcp.collector.dataaccess.remote.usermanagement.dto.UserLoginResponse;
+import ir.rahyabcp.collector.dataaccess.remote.configlist.ConfigListRemoteRepository;
+import ir.rahyabcp.collector.dataaccess.remote.configlist.dto.ConfigListRequestBody;
+import ir.rahyabcp.collector.dataaccess.remote.configlist.dto.ConfigListResponse;
+import ir.rahyabcp.collector.dataaccess.remote.userlogin.UserLoginRemoteRepository;
+import ir.rahyabcp.collector.dataaccess.remote.userlogin.dto.UserLoginRequestBody;
+import ir.rahyabcp.collector.dataaccess.remote.userlogin.dto.UserLoginResponse;
 import ir.rahyabcp.collector.service.internal.usermanagement.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
