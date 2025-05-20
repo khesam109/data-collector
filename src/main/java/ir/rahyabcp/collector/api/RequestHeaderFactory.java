@@ -38,6 +38,10 @@ public class RequestHeaderFactory {
         return createRequestHeader(token, "dpa.datanode_list");
     }
 
+    public RequestHeader streamList(String token) {
+        return createRequestHeader(token, "dpa.stream_list");
+    }
+
     private RequestHeader createRequestHeader(String token, String serviceName) {
         return new RequestHeader(token, serviceName, this.systemDate());
     }
