@@ -33,7 +33,16 @@ class CollectionManagerServiceImpl implements CollectionManagerService {
     @Override
     public void collect() {
         List<DataNode> dataNodes = this.dataNodeService.getActiveDataNodes();
-        dataNodes.forEach(this::collect);
+        dataNodes.forEach(this::collectAndIgnoreException);
+    }
+
+    private void collectAndIgnoreException(DataNode dataNode) {
+        try {
+            this.collect(dataNode);
+        } catch (Exception e) {
+            // Log the exception and continue with the next data node
+            System.err.println("Error collecting data from " + dataNode.getName() + ": " + e.getMessage());
+        }
     }
 
     private void collect(DataNode dataNode) {

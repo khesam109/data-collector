@@ -36,9 +36,8 @@ class FtpDataCollectorService implements DataCollectionService<FtpDataNode> {
         FTPClient ftpClient = new FTPClient();
         try {
             this.ftpConnectionHandlerService.connect(ftpClient, dataNode);
-            List<String> files = this.ftpFileFilter.toBeCollected(
-                    ftpClient, dataNode.getFilePattern()
-            );
+
+            List<String> files = this.ftpFileFilter.toBeCollected(ftpClient, dataNode);
 
             for (String fileName : files) {
                 boolean downloaded = this.ftpFileHandlerService.downloadFile(

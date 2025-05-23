@@ -1,5 +1,6 @@
 package ir.rahyabcp.collector.service.internal.collector.impl.ftp;
 
+import ir.rahyabcp.collector.model.FtpDataNode;
 import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,9 +20,9 @@ class FtpFileFilter {
         this.collectedFileInfoService = collectedFileInfoService;
     }
 
-    List<String> toBeCollected(FTPClient ftpClient, String pattern) {
-        List<String> existingFiles = getMatchingFiles(ftpFileHandlerService.getFileList(ftpClient), pattern);
-        List<String> collectedFiles = getCollectedFiles();
+    List<String> toBeCollected(FTPClient ftpClient, FtpDataNode dataNode) {
+        List<String> existingFiles = getMatchingFiles(ftpFileHandlerService.getFileList(ftpClient), dataNode.getFilePattern());
+        List<String> collectedFiles = getCollectedFiles(dataNode.getId());
 
         List<String> toBeCollected = new ArrayList<>(existingFiles);
         toBeCollected.removeAll(collectedFiles);
@@ -35,7 +36,7 @@ class FtpFileFilter {
                 .toList();
     }
 
-    private List<String> getCollectedFiles() {
-        return this.collectedFileInfoService.fetch();
+    private List<String> getCollectedFiles(int nodeId) {
+        return this.collectedFileInfoService.getCollectedFilesName(nodeId);
     }
 }

@@ -60,20 +60,4 @@ public abstract class DataNode {
     public RetryPolicy getRetryPolicy() {
         return retryPolicy;
     }
-
-    //    protected DataNode(
-//            ConnectionProtocol connectionProtocol,
-//            RetryPolicy retryPolicy
-//    ) {
-//        this.connectionProtocol = connectionProtocol;
-//        this.retryPolicy = retryPolicy;
-//    }
-//
-//    public ConnectionProtocol getConnectionProtocol() {
-//        return connectionProtocol;
-//    }
-//
-//    public RetryPolicy getRetryPolicy() {
-//        return retryPolicy;
-//    }
 }
